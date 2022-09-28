@@ -1,0 +1,328 @@
+/**
+ * {:noCode: Simple HTML Editor :}
+ * https://github.com/TheNocoder/ncSimpleHtmlEditor
+ *
+ * MIT License
+ *
+ * Copyright (c) 2022 Enrique F. Castañón B
+ * All rights reserved.
+ *
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+ *
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ */
+
+[contentEditable="true"] *:hover:not(.focused) {
+    outline: 1px dotted !important;
+    outline-color: revert !important;
+}
+
+[contentEditable="false"] *:hover:not(.focused) {
+    outline: revert !important;
+}
+
+.focused,
+.focused:hover {
+    outline: 2px dashed !important;
+    outline-offset: 2px !important;
+    outline-color: invert !important;
+    color: revert;
+}
+
+#ncsedt-container {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+#ncsedt-toolbar {
+    text-align: center;
+    left: 25px;
+    top: 25px;
+    width: 94px; /* 2 cols, 42 x 2 + padding * 2 + border * 2 */
+    padding: 4px;
+    height: auto;
+    position: fixed;
+    z-index: 9999;
+    background: hsla(0,0%,80%,.85);
+    border: 1px solid rgba(0,0,0,.10);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+#ncsedt-toolbar-dragger {
+    display: inline-block;
+    cursor: move;
+}
+
+.ncsedt-toolbar-icon-dragger {
+    background-color: transparent;
+    width: 100%;
+    max-width: 42px;
+    padding: 9px;
+    filter: invert(96%);
+}
+
+.ncsedt-toolbar-icon {
+    width: 100%;
+}
+
+.ncsedt-toolbar button:disabled,
+.ncsedt-toolbar button[disabled] {
+    cursor: default;
+}
+
+.ncsedt-toolbar button:disabled img,
+.ncsedt-toolbar button[disabled] img {
+    filter: invert(60%);
+}
+
+.ncsedt-toolbar-btn {
+    background-color: transparent;
+    box-sizing: none;
+    /* background-color: #fff; */
+    color: #333;
+    width: 100%;
+    max-width: 42px;
+    padding: 9px;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.ncsedt-toolbar-btn:active {
+    transform: scale(0.85);
+}
+
+.ncsedt-toolbar-btn:active:disabled {
+    transform: none;
+}
+
+.sbutton {
+    background-color: #FAFAFA;
+    border: 1px solid rgba(27, 31, 35, 0.15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+    box-sizing: border-box;
+    color: #242424;
+    cursor: pointer;
+    display: inline-block;
+    padding: 6px 14px;
+    touch-action: manipulation;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: break-word;
+}
+
+.sbutton:active {
+    transform: scale(0.85);
+}
+
+input.sbutton:active {
+    transform: none;
+}
+
+textarea.sbutton {
+    display: block;
+    white-space: pre;
+    word-wrap: revert;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+}
+
+textarea.sbutton:active {
+    transform: none;
+}
+
+.ncsedt-btns {
+    width: 100%;
+    text-align: right;
+}
+
+.ncsedt-btns-left {
+    float: left;
+}
+
+.ncsedt-btns-left button {
+    margin-right: 4px;
+}
+
+/* .ncsedt-btns-right {
+    float: right;
+} */
+
+.ncsedt-btns-right button {
+    margin-left: 4px;
+}
+
+.ncsedt-dialog {
+    padding: 8px;
+    border: 1px solid rgba(0,0,0,0.3);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ncsedt-dialog label  {
+    padding: 2px;
+}
+
+.ncsedt-dialog .dragger  {
+    cursor: move;
+}
+
+.ncsedt-dialog .dragger.sbutton  {
+    background-color: transparent;
+    border: none;
+    padding-left: 12px;
+    font-size: 18px;
+}
+
+.ncsedt-dialog .body  {
+    width: 100%;
+    height: calc(100% - 96px);
+    margin: 10px 0px;
+}
+
+.ncsedt-dialog .dragger img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    margin-top: -3px;
+    filter: invert(30%);
+}
+
+.ncsedt-dialog .ncsedt-btns img {
+    width: 18px;
+    height: 18px;
+    margin-top: -3px;
+    filter: invert(30%);
+}
+
+#ncsedt-dialog-code {
+    width: 720px;
+}
+
+#ncsedt-dialog-code textarea {
+    width: 100%;
+    min-height: 200px;
+    height: 100%;
+}
+
+#ncsedt-dialog-link .body {
+    padding: 8px;
+}
+
+#ncsedt-dialog-link .body textarea, #ncsedt-dialog-link .body input:not([type="checkbox"]) {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#ncsedt-dialog-image .body {
+    padding: 8px;
+}
+
+#ncsedt-dialog-image .preview {
+    position:relative;
+    margin-bottom: 10px;
+    width: 100%;
+    min-height: 45px;
+    max-height: 160px;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-image: repeating-linear-gradient(45deg, #fff, #fff 10px, #eee 10px, #eee 20px);
+}
+
+#ncsedt-dialog-image .preview .image {
+    padding: 0px;
+    width: auto;
+    height: 100%;
+    max-height: 160px;
+}
+
+#ncsedt-dialog-image input.src, #ncsedt-dialog-image input.alt {
+    width: 100%;
+}
+
+#ncsedt-dialog-image .image-remove {
+    float: right;
+}
+
+#ncsedt-dialog-image-upload {
+    position: absolute;
+    bottom: 2px; right: 2px;
+}
+
+#ncsedt-dialog-image-file {
+    position: absolute;
+    bottom: 111%;
+    right: 111%;
+    width: 1px;
+    height: 1px;
+}
+
+#ncsedt-dialog-image-width {
+    width: 82px;
+}
+
+#ncsedt-dialog-image-height {
+    width: 82px;
+}
+
+#ncsedt-dialog-image-float {
+    width: 82px;
+}
+
+#ncsedt-dialog-image-padding {
+    width: 82px;
+}
+
+#ncsedt-dialog-head {
+    width: 720px;
+}
+
+#ncsedt-dialog-head .body {
+    padding: 8px;
+}
+
+#ncsedt-dialog-head .title {
+    width: 100%;
+}
+
+#ncsedt-dialog-head .description {
+    width: 100%;
+    min-height: 80px;
+    height: 100%;
+}
+
+#ncsedt-dialog-head .all {
+    width: 100%;
+    min-height: 200px;
+    height: 100%;
+}
+
+#ncsedt-dialog-head .edit-all {
+    width: 100%;
+}
+
+.separator {
+    margin-bottom: 10px;
+}
