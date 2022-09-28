@@ -1796,8 +1796,14 @@
             var newlink = document.createElement('a');
             newlink.setAttribute('href', newurl);
             newlink.setAttribute('target', newtarget);
-            this.currentRange.surroundContents(newlink);
-            newlink.innerHTML = newanchor;
+
+            if (this.focused.contains(this.currentRange.commonAncestorContainer)) {
+                this.currentRange.surroundContents(newlink);
+                newlink.innerHTML = newanchor;
+            } else {
+                newlink.innerHTML = newanchor
+                this.focused.outerHTML = newlink.outerHTML;
+            }
         }
     };
 
