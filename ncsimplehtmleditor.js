@@ -152,8 +152,7 @@
             draggerIcon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAAA+klEQVRo3u3ZUQ7CIBAE0NGDGOL9r+SHJ6k/bWJIkV3KDrvCJHx3XgwsrcDKiuukfYXMA8ALwBvAc3SZ1vLbvkIh8vKhEKXyIRC18q4R0vIuEdryrhCt5bshboa4jfGsuyGAkukAidDJ7BnHhpUm37DSmJxO36eNNaD7EZsflQxAN8TZOc8CXEaUhhQT0Iz4NWHZADXi6vXAaokQXssXEeEn8Vm8/grd9oE0wzZxDcEGdJ8FTIDJNGYBzO5DDIDpjdQaYPqynwgAzTPWS/3wTA/QTOy/+zrnonwrwlV5LcJleSnCdfkaIkT5EiJU+RwRsvyRhMB/dK9MkQ9aiYmYo9JGZAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wOS0xNlQxMjoyOTo1MSswMDowMJ8FU+4AAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDktMTZUMTI6Mjk6NTErMDA6MDDuWOtSAAAAAElFTkSuQmCC'
         }
 
-        this.options = { ...defaults, ...options };
-        this.options.buttons = { ...defaults.buttons, ...options.buttons || {} };
+        this.options = this.deepMerge(defaults, options);
         this.options.groupingHistory = this.options.groupingHistory / 10000;
 
         /*
@@ -255,6 +254,18 @@
          */
         this.setEventEditorChanges();
         this.setEventEditorStart();
+    }
+
+    ncSimpleHtmlEditor.prototype.deepMerge = function (target, source) {
+        for (key of Object.keys(source)) {
+            if (!target.hasOwnProperty(key) || typeof source[key] !== 'object') {
+                target[key] = source[key];
+            } else {
+                this.deepMerge(target[key], source[key]);
+            }
+        }
+
+        return target;
     }
 
     /**
