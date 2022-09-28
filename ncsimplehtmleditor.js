@@ -1098,7 +1098,7 @@
         // });
 
         document.querySelector("#ncsedt-dialog-code .confirm").addEventListener('click', function () {
-            _this.editCodeConfirmt();
+            _this.editCodeConfirm();
         });
 
         document.querySelector("#ncsedt-dialog-code .link").addEventListener('click', function () {
@@ -1147,7 +1147,7 @@
         }
     };
 
-    ncSimpleHtmlEditor.prototype.editCodeConfirmt = function () {
+    ncSimpleHtmlEditor.prototype.editCodeConfirm = function () {
         if (!this.editEnable) {
             return;
         }
@@ -1280,7 +1280,7 @@
         });
 
         document.querySelector("#ncsedt-dialog-image .confirm").addEventListener('click', function () {
-            _this.editImageConfirmt();
+            _this.editImageConfirm();
         });
 
         document.querySelector("#ncsedt-dialog-image .parent").addEventListener('click', function () {
@@ -1427,7 +1427,7 @@
         }
     };
 
-    ncSimpleHtmlEditor.prototype.editImageConfirmt = function () {
+    ncSimpleHtmlEditor.prototype.editImageConfirm = function () {
         if (this.dialogImage.open) {
             this.dialogImage.close();
         }
@@ -1447,7 +1447,7 @@
                 this.editImageConfirmExisting();
             }
         } else {
-            this.editImageConfirmtNew();
+            this.editImageConfirmNew();
         }
     };
 
@@ -1512,7 +1512,7 @@
         }
     };
 
-    ncSimpleHtmlEditor.prototype.editImageConfirmtNew = function () {
+    ncSimpleHtmlEditor.prototype.editImageConfirmNew = function () {
         var newsrc = this.dialogImage.querySelector('#ncsedt-dialog-image-src').value;
         var newalt = this.dialogImage.querySelector('#ncsedt-dialog-image-alt').value;
         var newwidth = this.dialogImage.querySelector('#ncsedt-dialog-image-width').value;
@@ -1657,7 +1657,7 @@
         // });
 
         document.querySelector("#ncsedt-dialog-link .confirm").addEventListener('click', function () {
-            _this.editLinkConfirmt();
+            _this.editLinkConfirm();
         });
 
         document.querySelector("#ncsedt-dialog-link .code").addEventListener('click', function () {
@@ -1745,7 +1745,7 @@
         }
     };
 
-    ncSimpleHtmlEditor.prototype.editLinkConfirmt = function () {
+    ncSimpleHtmlEditor.prototype.editLinkConfirm = function () {
         if (this.dialogLink.open) {
             this.dialogLink.close();
         }
@@ -1765,7 +1765,7 @@
                 this.editLinkConfirmExisting();
             }
         } else {
-            this.editLinkConfirmtNew();
+            this.editLinkConfirmNew();
         }
     };
 
@@ -1787,7 +1787,7 @@
         }
     };
 
-    ncSimpleHtmlEditor.prototype.editLinkConfirmtNew = function () {
+    ncSimpleHtmlEditor.prototype.editLinkConfirmNew = function () {
         var newtarget = this.dialogLink.querySelector('#ncsedt-dialog-link-target').checked ? '_blank' : "";
         var newanchor = this.dialogLink.querySelector('#ncsedt-dialog-link-anchor').value;
         var newurl = this.dialogLink.querySelector('#ncsedt-dialog-link-href').value;
@@ -1903,7 +1903,7 @@
         });
 
         document.querySelector("#ncsedt-dialog-head .confirm").addEventListener('click', function () {
-            _this.editHeadConfirmt();
+            _this.editHeadConfirm();
         });
     };
 
@@ -1931,7 +1931,7 @@
         }
     };
 
-    ncSimpleHtmlEditor.prototype.editHeadConfirmt = function () {
+    ncSimpleHtmlEditor.prototype.editHeadConfirm = function () {
         if (this.dialogHead.open) {
             this.dialogHead.close();
         }
