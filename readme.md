@@ -44,6 +44,7 @@ This will start the editor with the default options:
 ## Options
 
 ```html
+<script>
     var options = {
 
         // editable element, default "body"
@@ -66,11 +67,13 @@ This will start the editor with the default options:
     };
 
     var editor = new ncSimpleHtmlEditor(options);
+</script>
 ```
 
 ### Create a custom button
 
 ```html
+<script>
     var options = {
         buttons: {
             help: {
@@ -117,6 +120,7 @@ This will start the editor with the default options:
     };
 
     var editor = new ncSimpleHtmlEditor(options);
+</script>
 ```
 ## License
 
