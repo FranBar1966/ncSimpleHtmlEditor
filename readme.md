@@ -35,7 +35,7 @@ This will start the editor with the default options:
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.css">
     <script src="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
     <script>
-        editor = new ncSimpleHtmlEditor();
+        var editor = new ncSimpleHtmlEditor();
         editor.start();
     </script>
 </div>
@@ -65,7 +65,7 @@ This will start the editor with the default options:
         toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save'],
     };
 
-    editor = new ncSimpleHtmlEditor(options);
+    var editor = new ncSimpleHtmlEditor(options);
 ```
 
 ### Create a custom button
@@ -116,7 +116,7 @@ This will start the editor with the default options:
         toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save', 'help']
     };
 
-    editor = new ncSimpleHtmlEditor(options);
+    var editor = new ncSimpleHtmlEditor(options);
 ```
 ## License
 
