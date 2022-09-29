@@ -401,6 +401,7 @@
         this.focused = element;
         this.focused.focus();
         this.focused.classList.add('focused');
+        document.dispatchEvent(new Event("focusedchange"));
     };
 
     /**
