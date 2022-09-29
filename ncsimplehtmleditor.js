@@ -253,7 +253,6 @@
          * Events that must be available before "start".
          */
         this.setEventEditorChanges();
-        this.setEventEditorStart();
     }
 
     ncSimpleHtmlEditor.prototype.deepMerge = function (target, source) {
@@ -913,15 +912,6 @@
 
         document.addEventListener('editorchanges', function () {
             _this.setDisabledBtns();
-        });
-    };
-
-    /**
-     * When start end.
-     */
-    ncSimpleHtmlEditor.prototype.setEventEditorStart = function () {
-        document.addEventListener('editorstart', function () {
-            // ..
         });
     };
 
