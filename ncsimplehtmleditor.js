@@ -413,6 +413,7 @@
         var templatesource = this.getDocumentHTML();
         var download = document.createElement('a');
         var btnsSave = document.querySelectorAll('.ncsedt-toolbar-btn-save img');
+        this.editOff();
 
         for (button of btnsSave) {
             button.src = this.options.buttons.save.icon2;
@@ -432,6 +433,7 @@
         }, this.options.saveTimeout);
 
         this.container.removeChild(download);
+        this.editOn();
     };
 
     /**
