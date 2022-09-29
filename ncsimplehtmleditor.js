@@ -519,8 +519,10 @@
      * Current focus to clipboard
      */
     ncSimpleHtmlEditor.prototype.copy = function () {
-        this.clipboard = this.focused.outerHTML;
-        document.dispatchEvent(new Event("editorchanges"));
+        if (this.focused != this.editable) {
+            this.clipboard = this.focused.outerHTML;
+            document.dispatchEvent(new Event("editorchanges"));
+        }
     };
 
     /**
@@ -633,7 +635,11 @@
      */
     ncSimpleHtmlEditor.prototype.disabledCopy = function () {
         if (this.editEnable) {
-            return false;
+            if (this.focused == this.editable) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return true;
         }
