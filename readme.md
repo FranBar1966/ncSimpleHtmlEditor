@@ -63,22 +63,34 @@ Better:
 ```javascript
 var options = {
 
-    // editable element, default "body"
+    /*
+     * editable element, default "body"
+     */
     editable: "body",
 
-    // Non-linear undo/redo history possible
+    /*
+     *  Non-linear undo/redo history possible
+     */
     linearHistory: true,
 
-    // Several mutations can belong to the same update in the history, they are grouped by time, in milliseconds.
+    /*
+     * Several mutations can belong to the same update in the history, they are grouped by time, in milliseconds.
+     */
     groupingHistory: 200,
 
-    // Number of toolbar columns, by default null, as set in css
+    /*
+     * Number of toolbar columns, by default null, as set in css
+     */
     toolbarCols: null,
 
-    // Save button, disable on click in milliseconds
+    /*
+     * Save button, disable on click in milliseconds
+     */
     saveTimeout: 500,
 
-    // Active buttons and toolbar order
+    /*
+     * Active buttons and toolbar order
+     */
     toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save'],
 };
 
@@ -94,28 +106,28 @@ var options = {
         help: {
 
             /*
-                * Same a key name: "help"
-                */
+             * Same a key name: "help"
+             */
             name: 'help',
 
             /*
-                * Image for toolbar icon
-                */
+             * Image for toolbar icon
+             */
             icon: 'help.png',
 
             /*
-                * Alt text
-                */
+             * Alt text
+             */
             title: 'Help',
 
             /*
-                * Set when the button is disabled, in this case never
-                */
+             * Set when the button is disabled, in this case never
+             */
             disabled: function () { return false },
 
             /*
-                * On click action
-                */
+             * On click action
+             */
             action: function () {
                 var link = document.createElement('a');
                 var ncsedt = document.querySelector('#ncsedt-implement');
@@ -129,8 +141,8 @@ var options = {
     },
 
     /*
-        * Add the button at the end of the toolbar
-        */
+     * Add the button at the end of the toolbar
+     */
     toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save', 'help']
 };
 
