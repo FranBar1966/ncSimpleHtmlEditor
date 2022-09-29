@@ -527,9 +527,11 @@
      * Cut current focus
      */
     ncSimpleHtmlEditor.prototype.cut = function () {
-        this.clipboard = this.focused.outerHTML;
-        this.focused.parentElement.removeChild(this.focused);
-        this.setFocus(this.focused.parentElement);
+        if (this.focused != this.editable) {
+            this.clipboard = this.focused.outerHTML;
+            this.focused.parentElement.removeChild(this.focused);
+            this.setFocus(this.focused.parentElement);
+        }
     };
 
     /**
@@ -616,7 +618,11 @@
      */
     ncSimpleHtmlEditor.prototype.disabledCut = function () {
         if (this.editEnable) {
-            return false;
+            if (this.focused == this.editable) {
+                return true;
+            } else {
+                return false;
+            }
         } else {
             return true;
         }
