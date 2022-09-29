@@ -41,86 +41,101 @@ This will start the editor with the default options:
 </div>
 ```
 
-## Options
+Better:
 
 ```html
-<script>
-    var options = {
+<div id="ncsedt-implement">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.css">
+    <script src="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', function () {
+            if (!("ncSHEditor" in window)) {
+                var ncSHEditor = new ncSimpleHtmlEditor();
+                ncSHEditor.start();
+            }
+        });
+    </script>
+</div>
+```
 
-        // editable element, default "body"
-        editable: "body",
+## Options
 
-        // Non-linear undo/redo history possible
-        linearHistory: true,
+```javascript
+var options = {
 
-        // Several mutations can belong to the same update in the history, they are grouped by time, in milliseconds.
-        groupingHistory: 200,
+    // editable element, default "body"
+    editable: "body",
 
-        // Number of toolbar columns, by default null, as set in css
-        toolbarCols: null,
+    // Non-linear undo/redo history possible
+    linearHistory: true,
 
-        // Save button, disable on click in milliseconds
-        saveTimeout: 500,
+    // Several mutations can belong to the same update in the history, they are grouped by time, in milliseconds.
+    groupingHistory: 200,
 
-        // Active buttons and toolbar order
-        toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save'],
-    };
+    // Number of toolbar columns, by default null, as set in css
+    toolbarCols: null,
 
-    var editor = new ncSimpleHtmlEditor(options);
-</script>
+    // Save button, disable on click in milliseconds
+    saveTimeout: 500,
+
+    // Active buttons and toolbar order
+    toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save'],
+};
+
+var editor = new ncSimpleHtmlEditor(options);
+editor.start();
 ```
 
 ### Create a custom button
 
-```html
-<script>
-    var options = {
-        buttons: {
-            help: {
+```javascript
+var options = {
+    buttons: {
+        help: {
 
-                /*
-                 * Same a key name: "help"
-                 */
-                name: 'help',
+            /*
+                * Same a key name: "help"
+                */
+            name: 'help',
 
-                /*
-                 * Image for toolbar icon
-                 */
-                icon: 'help.png',
+            /*
+                * Image for toolbar icon
+                */
+            icon: 'help.png',
 
-                /*
-                 * Alt text
-                 */
-                title: 'Help',
+            /*
+                * Alt text
+                */
+            title: 'Help',
 
-                /*
-                 * Set when the button is disabled, in this case never
-                 */
-                disabled: function () { return false },
+            /*
+                * Set when the button is disabled, in this case never
+                */
+            disabled: function () { return false },
 
-                /*
-                 * On click action
-                 */
-                action: function () {
-                    var link = document.createElement('a');
-                    var ncsedt = document.querySelector('#ncsedt-implement');
+            /*
+                * On click action
+                */
+            action: function () {
+                var link = document.createElement('a');
+                var ncsedt = document.querySelector('#ncsedt-implement');
 
-                    link.setAttribute('href', 'https://github.com/TheNocoder/ncSimpleHtmlEditor');
-                    link.setAttribute('target', '_blank');
-                    ncsedt.appendChild(link);
-                    link.click();
-                }
+                link.setAttribute('href', 'https://github.com/TheNocoder/ncSimpleHtmlEditor');
+                link.setAttribute('target', '_blank');
+                ncsedt.appendChild(link);
+                link.click();
             }
-        },
+        }
+    },
 
-        /*
-         * Add the button at the end of the toolbar
-         */
-        toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save', 'help']
-    };
+    /*
+        * Add the button at the end of the toolbar
+        */
+    toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save', 'help']
+};
 
-    var editor = new ncSimpleHtmlEditor(options);
-</script>
+var editor = new ncSimpleHtmlEditor(options);
+editor.start();
 ```
 ## License
 
