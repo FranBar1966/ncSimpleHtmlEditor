@@ -35,7 +35,7 @@
 
         const defaults = {
 
-            // editable element, default "body"
+            // editable selector, default "body"
             editable: "body",
 
             // Non-linear undo/redo history possible

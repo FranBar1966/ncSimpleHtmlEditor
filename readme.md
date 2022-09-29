@@ -64,7 +64,7 @@ Better:
 var options = {
 
     /*
-     * editable element, default "body"
+     * editable selector, default "body"
      */
     editable: "body",
 
@@ -97,9 +97,9 @@ var options = {
 var editor = new ncSimpleHtmlEditor(options);
 ```
 
-### Editable element
+### Editable selector
 
-The editor is designed to edit the whole page (body) but there is no problem to edit a specific element:
+The editor is designed to edit the whole page (body) but there is no problem to edit a specific selector:
 
 ```javascript
 var editor = new ncSimpleHtmlEditor({
