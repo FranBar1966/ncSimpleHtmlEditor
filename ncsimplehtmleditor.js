@@ -540,7 +540,7 @@
      * Paste clipboard content
      */
     ncSimpleHtmlEditor.prototype.paste = function () {
-        if (this.clipboard) {
+        if (this.clipboard && this.focused != this.editable) {
             this.focused.insertAdjacentHTML('afterend', this.clipboard);
         }
     };
@@ -649,7 +649,7 @@
      * When the redpasteo button is disabled
      */
     ncSimpleHtmlEditor.prototype.disabledPaste = function () {
-        if (this.editEnable && this.clipboard) {
+        if (this.editEnable && this.clipboard && this.focused != this.editable) {
             return false;
         } else {
             return true;
