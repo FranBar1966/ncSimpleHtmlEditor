@@ -95,8 +95,19 @@ var options = {
 };
 
 var editor = new ncSimpleHtmlEditor(options);
-editor.start();
 ```
+
+### Editable element
+
+The editor is designed to edit the whole page (body) but there is no problem to edit a specific element:
+
+```javascript
+var editor = new ncSimpleHtmlEditor({
+    editable: "#id",
+});
+```
+
+For editable: ".class" only the first element found will be editable.
 
 ### Create a custom button
 
@@ -147,7 +158,6 @@ var options = {
 };
 
 var editor = new ncSimpleHtmlEditor(options);
-editor.start();
 ```
 ## License
 
