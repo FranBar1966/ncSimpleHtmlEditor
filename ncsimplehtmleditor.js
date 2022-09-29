@@ -873,7 +873,8 @@
 
             switch (mutation.type) {
                 case 'characterData':
-                    mutation.target.parentElement.scrollIntoView({ block: "center" });
+                    var parentView = mutation.target.parentElement.parentElement.parentElement || mutation.target.parentElement.parentElement || mutation.target.parentElement
+                    parentView.scrollIntoView({ block: "center" });
                     this.setFocus(mutation.target.parentElement);
                     mutation.target.textContent = undo ? mutation.oldValue : mutation.newValue;
                     break;
