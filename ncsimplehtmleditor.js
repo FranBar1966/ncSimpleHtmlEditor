@@ -1417,7 +1417,7 @@
             /*
                 Edit new
             */
-            this.dialogImage.querySelector('#ncsedt-dialog-image-title').innerHTML = 'Image (Create new)';
+            this.dialogImage.querySelector('#ncsedt-dialog-image-title').innerHTML = 'Image (CREATE)';
             this.dialogImage.querySelector('.preview img').src = this.options.buttons.image.icon;
             this.dialogImage.querySelector('#ncsedt-dialog-image-src').value = '';
             this.dialogImage.querySelector('#ncsedt-dialog-image-alt').value = '';
@@ -1716,7 +1716,7 @@
             /*
                 Edit existing
             */
-            this.dialogLink.querySelector('#ncsedt-dialog-link-title').innerHTML = 'Link (Edit existing)';
+            this.dialogLink.querySelector('#ncsedt-dialog-link-title').innerHTML = 'Link (Edit)';
             this.dialogLink.querySelector('#ncsedt-dialog-link-anchor').value = this.focused.innerHTML;
             this.dialogLink.querySelector('#ncsedt-dialog-link-href').value = this.focused.getAttribute("href");
             this.dialogLink.querySelector('#ncsedt-dialog-link-remove').checked = false;
@@ -1738,7 +1738,7 @@
                 var anchor = this.focused.innerHTML || this.focused.outerHTML;
             }
 
-            this.dialogLink.querySelector('#ncsedt-dialog-link-title').innerHTML = 'Link (Create new)';
+            this.dialogLink.querySelector('#ncsedt-dialog-link-title').innerHTML = 'Link (CREATE)';
             this.dialogLink.querySelector('.anchor').value = anchor;
             this.dialogLink.querySelector('.href').value = '';
             this.dialogLink.querySelector('#ncsedt-dialog-link-target').checked = false;
