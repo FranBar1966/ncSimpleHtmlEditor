@@ -1397,7 +1397,7 @@
             */
             var style = window.getComputedStyle(this.focused);
 
-            this.dialogImage.querySelector('#ncsedt-dialog-image-title').innerHTML = 'Image (Edit existing)';
+            this.dialogImage.querySelector('#ncsedt-dialog-image-title').innerHTML = 'Image (Edit)';
             this.dialogImage.querySelector('.preview img').src = this.focused.src;
 
             if (this.focused.getAttribute('src').startsWith("data:image/")) {
