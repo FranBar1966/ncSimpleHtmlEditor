@@ -3,7 +3,7 @@
 
 Allows you to edit the content of previously created templates or designs, it does not have options to change the design.
 
-![screencast](https://user-images.githubusercontent.com/114579121/193252373-c0ea290c-b13a-41e7-a147-a5abf875374a.gif)
+![screencast](https://user-images.githubusercontent.com/114579121/193354797-fe3cd086-8447-480e-a475-7ba8ea747e15.gif)
 
 ## DEMO
 
