@@ -3,6 +3,8 @@
 
 Allows you to edit the content of previously created templates or designs, it does not have options to change the design.
 
+Unlike other editors, it allows you to edit the entire document, body and head.
+
 ![screencast](https://user-images.githubusercontent.com/114579121/193354797-fe3cd086-8447-480e-a475-7ba8ea747e15.gif)
 
 ## DEMO
