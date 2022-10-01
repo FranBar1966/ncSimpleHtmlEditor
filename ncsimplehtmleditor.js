@@ -472,7 +472,7 @@
     };
 
     /**
-     * Obtain the HTMl with the current changes.
+     * Get the HTML with the current changes.
      * If no selector is indicated, the complete document.
      */
     ncSimpleHtmlEditor.prototype.getDocumentHTML = function (selector = null) {
