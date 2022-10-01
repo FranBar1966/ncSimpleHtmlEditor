@@ -186,6 +186,15 @@ ncSimpleHtmlEditor.prototype.disabledUno = function () {
 - __editorchanges__: When there are changes in the editable content.
 - __focusedchange__: When the element that has the focus changes.
 
+## Functions
+
+- __isEditEnable()__: Determine if editing is active, true/false.
+- __getFocused()__: Get the current element that has the focus.
+- __getFocusedPrev()__: Get the previous element that had the focus
+- __getEditable()__: Get editable element.
+- __getClipboard()__: Get clipboard content, can be null.
+- __getDocumentHTML()__: Get the HTMl with the current changes.
+
 ## License
 
 MIT License

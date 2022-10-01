@@ -268,6 +268,41 @@
     }
 
     /**
+     * Determine if editing is active, true/false
+     */
+    ncSimpleHtmlEditor.prototype.isEditEnable = function (target, source) {
+        return this.editEnable;
+    }
+
+    /**
+     * Get the current element that has the focus.
+     */
+    ncSimpleHtmlEditor.prototype.getFocused = function (target, source) {
+        return this.focused;
+    }
+
+    /**
+     * Get the previous element that had the focus.
+     */
+     ncSimpleHtmlEditor.prototype.getFocusedPrev = function (target, source) {
+        return this.focusedPrev;
+    }
+
+    /**
+     * Get editable element.
+     */
+     ncSimpleHtmlEditor.prototype.getEditable = function (target, source) {
+        return this.editable;
+     }
+
+    /**
+     * Get clipboard content, can be null.
+     */
+    ncSimpleHtmlEditor.prototype.getClipboard = function (target, source) {
+        return this.clipboard;
+    }
+
+    /**
      * The highest node that can be editable is body
      */
     ncSimpleHtmlEditor.prototype.editableInBody = function () {
