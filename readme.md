@@ -193,7 +193,7 @@ ncSimpleHtmlEditor.prototype.disabledUno = function () {
 - __getFocusedPrev()__: Get the previous element that had the focus
 - __getEditable()__: Get editable element.
 - __getClipboard()__: Get clipboard content, can be null.
-- __getDocumentHTML()__: Get the HTML with the current changes.
+- __getDocumentHTML(selector = null)__: Get the HTML with the current changes, If no selector is indicated, the complete document.
 
 ## Overwrite save function
 
