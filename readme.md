@@ -195,6 +195,37 @@ ncSimpleHtmlEditor.prototype.disabledUno = function () {
 - __getClipboard()__: Get clipboard content, can be null.
 - __getDocumentHTML()__: Get the HTML with the current changes.
 
+## Overwrite save function
+
+```javascript
+var editor = new ncSimpleHtmlEditor({
+    buttons: {
+        save: {
+            action: function () {
+
+                /*
+                 * Disable editing mode to remove elements that
+                 * should only be in edit mode.
+                 */
+                editor.editOff();
+
+                /*
+                 * Get HTML to save
+                 */
+                var html = editor.getDocumentHTML();
+
+                // ...
+
+                /*
+                 * Restore editing mode.
+                 */
+                editor.editOn();
+            }
+        }
+    }
+});
+```
+
 ## License
 
 MIT License
