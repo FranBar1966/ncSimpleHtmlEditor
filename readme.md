@@ -161,6 +161,31 @@ var options = {
 
 var editor = new ncSimpleHtmlEditor(options);
 ```
+
+### disabled
+
+Disabled is called whenever there are changes in the editor so that you can determine when to disable the button, an example is the disabledUno function of the undo button, which is disabled whenever editing is not active and enabled if the history is not empty:
+
+```javascript
+ncSimpleHtmlEditor.prototype.disabledUno = function () {
+    if (this.editEnable) {
+        if (this.historyUndo.length) {
+            return false;
+        } else {
+            return true;
+        }
+    } else {
+        return true;
+    }
+};
+```
+
+## Events
+
+- __editorstart__: After start()
+- __editorchanges__: When there are changes in the editable content.
+- __focusedchange__: When the element that has the focus changes.
+
 ## License
 
 MIT License
