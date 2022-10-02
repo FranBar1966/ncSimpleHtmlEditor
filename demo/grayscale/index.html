@@ -203,9 +203,11 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+        <!-- ncSimpleHtmlEditor -->
         <div id="ncsedt-implement">
-            <link href="/ncSimpleHtmlEditor/ncsimplehtmleditor.css" rel="stylesheet" />
-            <script data-ncsheditorautoNO="true" src="/ncSimpleHtmlEditor/ncsimplehtmleditor.js"></script>
+            <link href="../../ncsimplehtmleditor.css" rel="stylesheet" />
+            <script src="../../ncsimplehtmleditor.js"></script>
             <script>
                 window.addEventListener('DOMContentLoaded', function () {
                     if (!("ncSHEditor" in window)) {
@@ -221,7 +223,7 @@
                                         var link = document.createElement('a');
                                         var ncsedt = document.querySelector('#ncsedt-implement');
 
-                                        link.setAttribute('href', 'https://github.com/TheNocoder/ncSimpleHtmlEditor');
+                                        link.setAttribute('href', 'https://thenocoder.github.io/ncSimpleHtmlEditor/');
                                         link.setAttribute('target', '_blank');
                                         ncsedt.appendChild(link);
                                         link.click();
@@ -234,5 +236,7 @@
                 });
             </script>
         </div>
+        <!-- ncSimpleHtmlEditor end -->
+
     </body>
 </html>
