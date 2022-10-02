@@ -154,6 +154,7 @@
 
         this.options = this.deepMerge(defaults, options);
         this.options.groupingHistory = this.options.groupingHistory / 10000;
+        this.editLeastOnce = null;
 
         /*
             <div id="ncsedt-implement">:
@@ -383,6 +384,7 @@
         this.editEnable = true;
         this.setFocus(this.focused);
         this.observe();
+        this.editLeastOnce = true;
         document.dispatchEvent(new Event("editorchanges"));
     };
 
@@ -994,6 +996,15 @@
                 _this.command(_this.options.buttons.code);
             }
         }, true);
+
+        window.addEventListener("beforeunload", function () {
+            if (this.editLeastOnce) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
     };
 
     /**
