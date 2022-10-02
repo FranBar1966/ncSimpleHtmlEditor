@@ -183,7 +183,8 @@ ncSimpleHtmlEditor.prototype.disabledUno = function () {
 ## Events
 
 - __editorstart__: After start()
-- __editorchanges__: When there are changes in the editable content.
+- __editorchanges__: When there are changes that affect the editor.
+- __contentchanges__: When there are changes in the editable content.
 - __focusedchange__: When the element that has the focus changes.
 
 ## Functions
