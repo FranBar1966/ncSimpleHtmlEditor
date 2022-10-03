@@ -109,6 +109,11 @@
 
 .ncsedt-toolbar-btn:active {
     transform: scale(0.85);
+    background-color: transparent;
+}
+
+.ncsedt-toolbar-btn:hover {
+    background-color: transparent;
 }
 
 .ncsedt-toolbar-btn:active:disabled {
