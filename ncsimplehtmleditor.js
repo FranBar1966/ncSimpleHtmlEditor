@@ -1594,6 +1594,9 @@
         if (this.focused.parentElement && this.focused.parentElement.tagName == 'IMG' && this.focused.parentElement.isContentEditable) {
             this.setFocus(this.focused.parentElement);
             this.editImage();
+        } else if (this.focused.parentElement.parentElement && this.focused.parentElement.parentElement.querySelector('img') && this.focused.parentElement.parentElement.isContentEditable) {
+            this.setFocus(this.focused.parentElement.parentElement.querySelector('img'));
+            this.editImage();
         } else if (this.focused.previousElementSibling && this.focused.previousElementSibling.tagName == 'IMG' && this.focused.previousElementSibling.isContentEditable) {
             this.setFocus(this.focused.previousElementSibling);
             this.editImage();
