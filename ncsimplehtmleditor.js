@@ -448,6 +448,7 @@
         var templatesource = this.getDocumentHTML();
         var download = document.createElement('a');
         var btnsSave = document.querySelectorAll('.ncsedt-toolbar-btn-save img');
+        this.saving = true;
         this.editOff();
 
         for (button of btnsSave) {
@@ -461,6 +462,7 @@
         download.click();
 
         setTimeout(function () {
+            _this.saving = false;
             for (button of btnsSave) {
                 button.src = _this.options.buttons.save.icon;
                 button.parentNode.disabled = false;
@@ -591,7 +593,7 @@
      * When the save button is disabled
      */
     ncSimpleHtmlEditor.prototype.disabledSave = function () {
-        if (this.editEnable) {
+        if (this.editEnable && !this.saving) {
             return false;
         } else {
             return true;
