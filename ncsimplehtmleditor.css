@@ -65,17 +65,10 @@
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
 }
 
-#ncsedt-toolbar-dragger {
-    display: inline-block;
-    cursor: move;
-}
-
 .ncsedt-toolbar-icon-dragger {
-    background-color: transparent;
     width: 100%;
-    max-width: 42px;
-    padding: 9px;
     filter: invert(96%);
+    cursor: move;
 }
 
 .ncsedt-toolbar-icon {

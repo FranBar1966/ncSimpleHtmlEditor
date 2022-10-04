@@ -1054,9 +1054,9 @@
         toolbar.classList.add("ncsedt-toolbar");
 
         toolbar.innerHTML =
-            '<div class="ncsedt-toolbar-dragger" id="ncsedt-toolbar-dragger">' +
-            '   <img class="ncsedt-toolbar-icon-dragger" src="' + this.options.draggerIcon + '" title="Move">' +
-            '</div >';
+            '<button class="ncsedt-toolbar-dragger ncsedt-toolbar-btn" id="ncsedt-toolbar-dragger">' +
+            '   <img class="ncsedt-toolbar-icon-dragger ncsedt-toolbar-icon" src="' + this.options.draggerIcon + '" title="Move">' +
+            '</button>';
 
         for (var name of this.options.toolbar) {
             var option = this.options.buttons[name];
