@@ -51,10 +51,8 @@ Better:
     <script src="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', function () {
-            if (!("ncSHEditor" in window)) {
-                var ncSHEditor = new ncSimpleHtmlEditor();
-                ncSHEditor.start();
-            }
+            var editor = new ncSimpleHtmlEditor();
+            editor.start();
         });
     </script>
 </div>
