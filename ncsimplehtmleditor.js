@@ -769,6 +769,7 @@
                     case 'characterData':
                         mutation.newValue = mutation.target.nodeValue;
                         _this.historyUndo.push(mutation);
+                        _this.resetLinearHistory();
                         document.dispatchEvent(new Event("contentchanges"));
                         break
                     case 'attributes':
@@ -778,12 +779,14 @@
                             mutation.newValue = attrValue;
                             _this.historyUndo.push(mutation);
                             _this.historyForceRemove(attrName, attrValue);
+                            _this.resetLinearHistory();
                             document.dispatchEvent(new Event("contentchanges"));
                         }
 
                         break
                     case 'childList':
                         _this.historyUndo.push(mutation);
+                        _this.resetLinearHistory();
                         document.dispatchEvent(new Event("contentchanges"));
                         break
                 }
@@ -791,6 +794,8 @@
 
             document.dispatchEvent(new Event("editorchanges"));
         });
+
+
     };
 
     /**
@@ -818,6 +823,12 @@
             });
         }
     };
+
+    ncSimpleHtmlEditor.prototype.resetLinearHistory = function () {
+        if (this.historyRedo.length && this.options.linearHistory) {
+            this.historyRedo = [];
+        }
+    }
 
     /**
      * Attributes require authorization for mutations.
@@ -992,10 +1003,6 @@
                 evt.returnValue = '';
                 return '';
             };
-
-            if (_this.options.linearHistory && _this.historyRedo.length) {
-                _this.historyRedo = [];
-            }
         });
 
     };
