@@ -195,7 +195,7 @@ textarea.sbutton:active {
 }
 
 .ncsedt-dialog .body  {
-    width: 100%;
+    /* width: 100%; */
     height: calc(100% - 96px);
     margin: 10px 0px;
 }
