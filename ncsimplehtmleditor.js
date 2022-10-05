@@ -942,6 +942,7 @@
 
         this.observe();
         document.dispatchEvent(new Event("editorchanges"));
+        document.dispatchEvent(new Event("contentchanges"));
     };
 
     /**
