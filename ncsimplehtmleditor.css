@@ -105,6 +105,10 @@
     background-color: transparent;
 }
 
+.ncsedt-toolbar-btn:focus {
+    outline: none;
+}
+
 .ncsedt-toolbar-btn:hover {
     background-color: transparent;
 }
