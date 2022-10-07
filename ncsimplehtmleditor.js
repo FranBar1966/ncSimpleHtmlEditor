@@ -50,6 +50,10 @@
             // Save button, disable on click in milliseconds
             saveTimeout: 500,
 
+            // Max image upload size in bytes.
+            // There is a big performance loss in the editor when using large base64 images.
+            maxImageUpload: 1200000,
+
             // Active buttons and toolbar order
             toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save'],
 
@@ -1368,8 +1372,9 @@
         });
 
         document.querySelector("#ncsedt-dialog-image-file").addEventListener('change', function (e) {
-            if (this.files[0].size > 1100000) {
-                alert("File is too big! 1Mb. max. (Use .webp format)");
+            if (this.files[0].size > _this.options.maxImageUpload) {
+                var inMb = (_this.options.maxImageUpload / 1024 / 1024).toFixed(1);
+                alert("File is too big! "+ inMb + "Mb. max. (Use .webp format)");
                 this.value = "";
 
                 return false;
