@@ -33,6 +33,7 @@ It is important that all the editor code is wrapped in a div with the id "ncsedt
 This will start the editor with the default options:
 
 ```html
+<!-- ncsedt-implement:before -->
 <div id="ncsedt-implement">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.css">
     <script src="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
@@ -46,6 +47,7 @@ This will start the editor with the default options:
 Better:
 
 ```html
+<!-- ncsedt-implement:before -->
 <div id="ncsedt-implement">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.css">
     <script src="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
@@ -57,6 +59,8 @@ Better:
     </script>
 </div>
 ```
+
+With ncsedt-implement:before, dynamic changes are detected so that they can be removed before saving.
 
 ## Options
 

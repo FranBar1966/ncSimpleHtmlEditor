@@ -506,9 +506,17 @@
      * Removes the code from the HTML editor.
      */
     ncSimpleHtmlEditor.prototype.ncsedtRemover = function (html) {
-        var result = html.replace(/(<!-- ncsedt-implement:begin -->.*<!-- ncsedt-implement:end -->)|(<!-- ncsedt-container:begin -->.*<!-- ncsedt-container:end -->)|(<\/?ncsedt-editable[^>]*>)/gsi, '');
 
-        return result;
+        /*
+         * Everything between <!-- ncsedt-implement:before --> and </ncsedt-editable>
+         * was created dynamically and must be removed.
+         */
+        html = html.replace(/<!--\s*ncsedt-implement:before\s*-->.*<\/ncsedt-editable>/gsi, '</ncsedt-editable>');
+        html = html.replace(/<!--\s*ncsedt-implement:begin\s*-->.*<!--\s*ncsedt-implement:end\s*-->/gsi, '');
+        html = html.replace(/<!--\s*ncsedt-container:begin\s*-->.*<!--\s*ncsedt-container:end\s*-->/gsi, '');
+        html = html.replace(/<\/?ncsedt-editable[^>]*>/gsi, '');
+
+        return html;
     };
 
     /**
