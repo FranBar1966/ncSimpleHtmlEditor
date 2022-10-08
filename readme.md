@@ -92,6 +92,10 @@ var options = {
      */
     saveTimeout: 500,
 
+    // Max image upload size in bytes.
+    // There is a big performance loss in the editor when using large base64 images.
+    maxImageUpload: 1200000,
+
     /*
      * Active buttons and toolbar order
      */
