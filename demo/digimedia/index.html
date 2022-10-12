@@ -696,44 +696,42 @@ https://templatemo.com/tm-568-digimedia
         <script src="https://cdn.statically.io/gh/thenocoder/ncSimpleHtmlEditor/master/ncsimplehtmleditor.js"></script>
         <script>
             window.addEventListener('DOMContentLoaded', function () {
-                if (!("ncSHEditor" in window)) {
-                    ncSHEditor = new ncSimpleHtmlEditor({
-                        toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save', 'help', 'github'],
-                        buttons: {
-                            help: {
-                                name: 'help',
-                                icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAABzklEQVRo3u2YrUtDURiHH4eIOBEFizimmGyzqCAIhhUxODBaLQqihiXxTzDMIoZVRTAZFGxaTIJhCGKwDFTEMsPE73A3kHHfs3svd/ed7DxwyoHznud3dz7uLlgsrU1byPWSwDwwBwwDCeAHKAIF4Bw4Ah61g9eSAPLAZ0XY1D6AA2BEW7pKBnj1IF7b3oAVbfk14CuA/N+2rSWfCUG+2rJRyycItmyk9g6MRRkgj3lt54BJIA70ATPATp3QZ1HJJ5FPmyKQMowdAq4MIUajCLCK/ORTHsb3Aw9Cjc0oApwKk+d81NgSahxHEeBWmHzCR42UUOPar0wsQIABof/GR40Xob/br0x7gAA9AcbUMij0l/wWCvILhMG00H+n5OOLDuAe9z2woS3nhawg/41zTzQ1sziv024BTrTl6rGAs0mlpz+uLSjRC+whvz74vQQjJY382lBtl0CXtqgb69T/i3lBOPdK6CzirGuT/C7Okdp0xIFng3gZWNKWNLFskC8BU9qC9dhHPirT2nJeKAgBDrXFvPIkBMhoi3mlLARIaot5RTr7OxsxWdgfd8HZrG51Y5UgFoslRBqxiaWN2oi51L5K2AA2QLPw7wNYLK3OL9wHEakZ8XSOAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA5LTI4VDE2OjE3OjQ2KzAwOjAwooL89QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wOS0yOFQxNjoxNzo0NiswMDowMNPfREkAAAAASUVORK5CYII=',
-                                title: 'Help',
-                                disabled: function () { return false },
-                                action: function () {
-                                    var link = document.createElement('a');
-                                    var ncsedt = document.querySelector('#ncsedt-implement');
+                ncSHEditor = new ncSimpleHtmlEditor({
+                    toolbar: ['edit', 'undo', 'redo', 'up', 'down', 'cut', 'copy', 'paste', 'code', 'link', 'image', 'head', 'save', 'help', 'github'],
+                    buttons: {
+                        help: {
+                            name: 'help',
+                            icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAABzklEQVRo3u2YrUtDURiHH4eIOBEFizimmGyzqCAIhhUxODBaLQqihiXxTzDMIoZVRTAZFGxaTIJhCGKwDFTEMsPE73A3kHHfs3svd/ed7DxwyoHznud3dz7uLlgsrU1byPWSwDwwBwwDCeAHKAIF4Bw4Ah61g9eSAPLAZ0XY1D6AA2BEW7pKBnj1IF7b3oAVbfk14CuA/N+2rSWfCUG+2rJRyycItmyk9g6MRRkgj3lt54BJIA70ATPATp3QZ1HJJ5FPmyKQMowdAq4MIUajCLCK/ORTHsb3Aw9Cjc0oApwKk+d81NgSahxHEeBWmHzCR42UUOPar0wsQIABof/GR40Xob/br0x7gAA9AcbUMij0l/wWCvILhMG00H+n5OOLDuAe9z2woS3nhawg/41zTzQ1sziv024BTrTl6rGAs0mlpz+uLSjRC+whvz74vQQjJY382lBtl0CXtqgb69T/i3lBOPdK6CzirGuT/C7Okdp0xIFng3gZWNKWNLFskC8BU9qC9dhHPirT2nJeKAgBDrXFvPIkBMhoi3mlLARIaot5RTr7OxsxWdgfd8HZrG51Y5UgFoslRBqxiaWN2oi51L5K2AA2QLPw7wNYLK3OL9wHEakZ8XSOAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIyLTA5LTI4VDE2OjE3OjQ2KzAwOjAwooL89QAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMi0wOS0yOFQxNjoxNzo0NiswMDowMNPfREkAAAAASUVORK5CYII=',
+                            title: 'Help',
+                            disabled: function () { return false },
+                            action: function () {
+                                var link = document.createElement('a');
+                                var ncsedt = document.querySelector('#ncsedt-implement');
 
-                                    link.setAttribute('href', 'https://templatemo.com/');
-                                    link.setAttribute('target', '_blank');
-                                    ncsedt.appendChild(link);
-                                    link.click();
-                                }
-                            },
-                            github: {
-                                name: 'github',
-                                icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAADIklEQVRo3u2Y20tUQRzHPyrdzFKoxUv5WlGhkCX10JUgejQquzxE/0IQRBYVBAoSJSZmvfYqFpQEQXSBoCihx+olSreLRmDXLWt7mFl2nT0zZ845c45B+4UB2d+c7+/7nRln5jdQQgn/N8oc8VQArcBWoAVYAdQDVTL+BUgDz4GnwB3gMfBnpgegEegCRoFswPYG6ASWzoTwFDAAZEIIV1sG6AcWJyX+APDRgXC1TQD74hQ+C7gSg3C1XZK5nKISGE5AfK7dlDmdjXyS4nPtNjDbhYEklo2u9UcVf1BDfAHYBfQB7yMIfAdclFw9mj7tYcWn0O82Kwv6zQM6gM8yNoU4sB4ilt6w/PuFjGVl3w75bQ6rNLnGgUVhDAxoCL9p+jcAG8mfvl6okn0aNPHvmpx9QcU3oj+kJsKMhiV0M/6DgCd2F/p1+5vpU+8KlZJbl7fTlqgC/7tNUwwGmnxyvgbKbYg2+BANxCA+h8s+uVttSI4bCCYJuSNYIkV+N/Nqx9QPvKZkrSHBEOIfLS6MA9cN8RYbA8sMBPdiFJ/DXUNsuY2BegPBWAIGRg2xIm1eBkwH0UxjgY2BKQNBElVTyhAr0uZlwHTS1iVgwLSEi7R5GRg3EGxKwMBmQ+yDjYFXBoJtOKyUPDAf2GKIF2nzMvDAQFAFHInRwFHMA3TfhqQZ83E+CayOQXwz4gEs8h2sHPHoZCJKy4SusAZRnTm5zAGcUD7+BLxUfssAZ4HaCMKXAN3ALx/xWcQdzRq1TC9oeuXv6xDlomrkFuKitRNYaOCtAdqAk4j3URvhWUSlZjofPNGrkFxF1AqN6Av5Z8BcA+ccYMRStPqIEBjViLVeSHRGxnaQL9AL22EL3vaA4sd8ZtWIPQrZV/Kn8XbgEfATccDcwG6aGwIa2B1WfA7nFMLzEfkqAojvjioexNY1VEA6BRyKyGkjfpAA26YfKoFrSoJhYD+wHlEptTk0MEgMLx9lwGmfxC4M9OBw5L2wl+LdyYWBNGLTSAQ1iOc+9fUujIEM4oG3OinxhagDTiFG70mA70aAt4glmUSRVEIJJfyr+AubsTWHiHv2sgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wOS0yOVQxNjozMzoyNCswMDowMAydbHEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDktMjlUMTY6MzM6MjQrMDA6MDB9wNTNAAAAAElFTkSuQmCC',
-                                title: 'Github',
-                                disabled: function () { return false },
-                                action: function () {
-                                    var link = document.createElement('a');
-                                    var ncsedt = document.querySelector('#ncsedt-implement');
+                                link.setAttribute('href', 'https://templatemo.com/');
+                                link.setAttribute('target', '_blank');
+                                ncsedt.appendChild(link);
+                                link.click();
+                            }
+                        },
+                        github: {
+                            name: 'github',
+                            icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAABgAAAAYADwa0LPAAADIklEQVRo3u2Y20tUQRzHPyrdzFKoxUv5WlGhkCX10JUgejQquzxE/0IQRBYVBAoSJSZmvfYqFpQEQXSBoCihx+olSreLRmDXLWt7mFl2nT0zZ845c45B+4UB2d+c7+/7nRln5jdQQgn/N8oc8VQArcBWoAVYAdQDVTL+BUgDz4GnwB3gMfBnpgegEegCRoFswPYG6ASWzoTwFDAAZEIIV1sG6AcWJyX+APDRgXC1TQD74hQ+C7gSg3C1XZK5nKISGE5AfK7dlDmdjXyS4nPtNjDbhYEklo2u9UcVf1BDfAHYBfQB7yMIfAdclFw9mj7tYcWn0O82Kwv6zQM6gM8yNoU4sB4ilt6w/PuFjGVl3w75bQ6rNLnGgUVhDAxoCL9p+jcAG8mfvl6okn0aNPHvmpx9QcU3oj+kJsKMhiV0M/6DgCd2F/p1+5vpU+8KlZJbl7fTlqgC/7tNUwwGmnxyvgbKbYg2+BANxCA+h8s+uVttSI4bCCYJuSNYIkV+N/Nqx9QPvKZkrSHBEOIfLS6MA9cN8RYbA8sMBPdiFJ/DXUNsuY2BegPBWAIGRg2xIm1eBkwH0UxjgY2BKQNBElVTyhAr0uZlwHTS1iVgwLSEi7R5GRg3EGxKwMBmQ+yDjYFXBoJtOKyUPDAf2GKIF2nzMvDAQFAFHInRwFHMA3TfhqQZ83E+CayOQXwz4gEs8h2sHPHoZCJKy4SusAZRnTm5zAGcUD7+BLxUfssAZ4HaCMKXAN3ALx/xWcQdzRq1TC9oeuXv6xDlomrkFuKitRNYaOCtAdqAk4j3URvhWUSlZjofPNGrkFxF1AqN6Av5Z8BcA+ccYMRStPqIEBjViLVeSHRGxnaQL9AL22EL3vaA4sd8ZtWIPQrZV/Kn8XbgEfATccDcwG6aGwIa2B1WfA7nFMLzEfkqAojvjioexNY1VEA6BRyKyGkjfpAA26YfKoFrSoJhYD+wHlEptTk0MEgMLx9lwGmfxC4M9OBw5L2wl+LdyYWBNGLTSAQ1iOc+9fUujIEM4oG3OinxhagDTiFG70mA70aAt4glmUSRVEIJJfyr+AubsTWHiHv2sgAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMi0wOS0yOVQxNjozMzoyNCswMDowMAydbHEAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjItMDktMjlUMTY6MzM6MjQrMDA6MDB9wNTNAAAAAElFTkSuQmCC',
+                            title: 'Github',
+                            disabled: function () { return false },
+                            action: function () {
+                                var link = document.createElement('a');
+                                var ncsedt = document.querySelector('#ncsedt-implement');
 
-                                    link.setAttribute('href', 'https://github.com/TheNocoder/ncSimpleHtmlEditor');
-                                    link.setAttribute('target', '_blank');
-                                    ncsedt.appendChild(link);
-                                    link.click();
-                                }
+                                link.setAttribute('href', 'https://github.com/TheNocoder/ncSimpleHtmlEditor');
+                                link.setAttribute('target', '_blank');
+                                ncsedt.appendChild(link);
+                                link.click();
                             }
                         }
-                    });
-                    ncSHEditor.start();
-                }
+                    }
+                });
+                ncSHEditor.start();
             });
         </script>
     </div>
