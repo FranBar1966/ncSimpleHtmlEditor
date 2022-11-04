@@ -217,7 +217,7 @@ When the plugin is executed the code has changed dynamically and may look simila
 <div class="preload done"></div>
 ```
 
-Saving the template will also save the .done class and the preload will not be executed again. If we mark as "restorable" and call restorable.restore() before saving the template we restore the tag with the correct attributes.
+Saving the template will also save the .done class and the preload will not be executed again.
 
 It will not work with dynamic changes that are executed before loading the editor code.
 
@@ -252,21 +252,11 @@ var editor = new ncSimpleHtmlEditor({
                 editor.editOff();
 
                 /*
-                 * Restores content marked as "restorable".
-                 */
-                this.restorable.restore();
-
-                /*
                  * Get HTML to save
                  */
                 var html = editor.getDocumentHTML();
 
                 // ...
-
-                /*
-                 * Undo "restorable".
-                 */
-                this.restorable.undoRestore();
 
                 /*
                  * Restore editing mode.

@@ -547,7 +547,6 @@ if (!("ncsedtRestorableObj" in window)) {
         var btnsSave = document.querySelectorAll('.ncsedt-toolbar-btn-save img');
         this.saving = true;
         this.editOff();
-        this.restorable.restore();
 
         for (button of btnsSave) {
             button.src = this.options.buttons.save.icon2;
@@ -568,7 +567,6 @@ if (!("ncsedtRestorableObj" in window)) {
         }, this.options.saveTimeout);
 
         this.container.removeChild(download);
-        this.restorable.undoRestore();
         this.editOn();
     };
 
@@ -578,7 +576,6 @@ if (!("ncsedtRestorableObj" in window)) {
      */
     ncSimpleHtmlEditor.prototype.getDocumentHTML = function (selector = null) {
         var html = '';
-        var result = '';
 
         window.scrollTo({
             top: 0,
@@ -586,15 +583,17 @@ if (!("ncsedtRestorableObj" in window)) {
             behavior: 'instant'
         });
 
+        this.restorable.restore();
+
         if (selector) {
             html = document.querySelector(selector).innerHTML;
         } else {
             html = new XMLSerializer().serializeToString(document);
         }
 
-        result = this.ncsedtRemover(html);
+        this.restorable.undoRestore();
 
-        return result;
+        return this.ncsedtRemover(html);
     };
 
     /**
