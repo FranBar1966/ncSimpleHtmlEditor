@@ -117,7 +117,9 @@
 /*
  * It must be executed immediately, without waiting for onload.
  */
-var ncsedtRestorableObj = new ncsedtRestorable();
+if (!("ncsedtRestorableObj" in window)) {
+    var ncsedtRestorableObj = new ncsedtRestorable();
+}
 
 (function () {
     window.ncSimpleHtmlEditor = function (options = {}) {
