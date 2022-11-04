@@ -221,6 +221,20 @@ Saving the template will also save the .done class and the preload will not be e
 
 It will not work with dynamic changes that are executed before loading the editor code.
 
+## Removable
+
+You can mark code block as "removable" to remove block on save.
+
+The following code block will be removed when saving the template:
+
+```html
+<ncsedt-removable>
+    <div>
+        ...
+    </div>
+</ncsedt-removable>
+```
+
 ## Events
 
 - __editorstart__: After start()
@@ -256,7 +270,7 @@ var editor = new ncSimpleHtmlEditor({
                  */
                 var html = editor.getDocumentHTML();
 
-                // ...
+                // Your code to save the html here.
 
                 /*
                  * Restore editing mode.

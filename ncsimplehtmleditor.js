@@ -584,6 +584,7 @@ if (!("ncsedtRestorableObj" in window)) {
         });
 
         this.restorable.restore();
+        this.removable();
 
         if (selector) {
             html = document.querySelector(selector).innerHTML;
@@ -591,6 +592,7 @@ if (!("ncsedtRestorableObj" in window)) {
             html = new XMLSerializer().serializeToString(document);
         }
 
+        this.undoRemovable();
         this.restorable.undoRestore();
 
         return this.ncsedtRemover(html);
@@ -605,12 +607,39 @@ if (!("ncsedtRestorableObj" in window)) {
          * Everything between <!-- ncsedt-implement:before --> and </ncsedt-editable>
          * was created dynamically and must be removed.
          */
+        html = html.replace(/<ncsedt-removable>\s*<\/ncsedt-removable>/gsi, '');
         html = html.replace(/<!--\s*ncsedt-implement:before\s*-->.*<\/ncsedt-editable>/gsi, '</ncsedt-editable>');
         html = html.replace(/<!--\s*ncsedt-implement:begin\s*-->.*<!--\s*ncsedt-implement:end\s*-->/gsi, '');
         html = html.replace(/<!--\s*ncsedt-container:begin\s*-->.*<!--\s*ncsedt-container:end\s*-->/gsi, '');
         html = html.replace(/<\/?ncsedt-editable[^>]*>/gsi, '');
 
         return html;
+    };
+
+    /**
+     * Remove removable block
+     */
+    ncSimpleHtmlEditor.prototype.removable = function () {
+        var _this = this;
+        var count = 0;
+        this.removableHtml = [];
+
+        document.querySelectorAll('ncsedt-removable').forEach(function (node) {
+            _this.removableHtml[count++] = node.innerHTML;
+            node.innerHTML = '';
+        });
+    };
+
+    /**
+     * Undo remove removable block
+     */
+    ncSimpleHtmlEditor.prototype.undoRemovable = function () {
+        var _this = this;
+        var count = 0;
+
+        document.querySelectorAll('ncsedt-removable').forEach(function (node) {
+            node.innerHTML = _this.removableHtml[count++];
+        });
     };
 
     /**
