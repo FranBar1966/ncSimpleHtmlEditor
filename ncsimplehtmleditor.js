@@ -7,8 +7,122 @@
  */
 
 (function () {
+
+    /**
+     * Save restorable <ncsedt-restorable> and data-ncsedt-restorable="true"
+     * This restore dynamic changes, preload, etc.
+     */
+    window.ncsedtRestorable = function () {
+        var _this = this;
+        this.restorableNodesTag = document.querySelectorAll('ncsedt-restorable');
+        this.restorableNodesAttr = document.querySelectorAll('[data-ncsedt-restorable="true"]');
+        this.restorableHtml = [];
+        this.restorableAttr = [];
+        this.restorableUndoHtml = [];
+        this.restorableUndoAttr = [];
+        this.restorableHtmlCount = 0;
+        this.restorableAttrCount = 0;
+
+        this.restorableNodesTag.forEach(function (node) {
+            _this.restorableHtml[_this.restorableHtmlCount++] = node.innerHTML;
+        });
+
+        this.restorableNodesAttr.forEach(function (node) {
+            _this.restorableAttr[_this.restorableAttrCount++] = node.cloneNode().attributes;
+        });
+
+        // console.log(this.restorableHtml);
+        // console.log(this.restorableAttr);
+    }
+
+    /**
+     * Restore <ncsedt-restorable> and data-ncsedt-restorable="true"
+     */
+    ncsedtRestorable.prototype.restore = function () {
+        var _this = this;
+        var count = 0;
+
+        /*
+         * Save current <ncsedt-restorable> for undoRestore
+         */
+        count = 0;
+        this.restorableNodesTag.forEach(function (node) {
+            _this.restorableUndoHtml[count++] = node.innerHTML;
+        });
+
+        /*
+         * Save current data-ncsedt-restorable="true" for undoRestore
+         */
+        count = 0;
+        this.restorableNodesAttr.forEach(function (node) {
+            _this.restorableUndoAttr[count++] = node.cloneNode().attributes;
+        });
+
+        /*
+         * Restore <ncsedt-restorable>
+         */
+        for (let i = 0; i < this.restorableNodesTag.length; i++) {
+            this.restorableNodesTag[i].innerHTML = this.restorableHtml[i];
+        }
+
+        /*
+         * Remove all attributes from current data-ncsedt-restorable="true"
+         */
+        for (let i = 0; i < this.restorableNodesAttr.length; i++) {
+            Array.prototype.slice.call(this.restorableNodesAttr[i].attributes).forEach(
+                function (cur) {
+                    _this.restorableNodesAttr[i].removeAttribute(cur.name);
+                }
+            )
+        }
+
+        /*
+         * Restore data-ncsedt-restorable="true"
+         */
+        for (let i = 0; i < this.restorableNodesAttr.length; i++) {
+            Array.prototype.slice.call(this.restorableAttr[i]).forEach(
+                function (cur) {
+                    _this.restorableNodesAttr[i].setAttribute(cur.name, cur.value);
+                }
+            )
+        }
+    };
+
+    /**
+     * Undo restore
+     */
+    ncsedtRestorable.prototype.undoRestore = function () {
+        var _this = this;
+
+        /*
+         * Undo restore <ncsedt-restorable>
+         */
+        for (let i = 0; i < this.restorableNodesTag.length; i++) {
+            this.restorableNodesTag[i].innerHTML = this.restorableUndoHtml[i];
+        }
+
+        /*
+         * Undo restore data-ncsedt-restorable="true"
+         */
+        for (let i = 0; i < this.restorableNodesAttr.length; i++) {
+            Array.prototype.slice.call(this.restorableUndoAttr[i]).forEach(
+                function (cur) {
+                    _this.restorableNodesAttr[i].setAttribute(cur.name, cur.value);
+                }
+            )
+        }
+    };
+})();
+
+/*
+ * It must be executed immediately, without waiting for onload.
+ */
+var ncsedtRestorableObj = new ncsedtRestorable();
+
+(function () {
     window.ncSimpleHtmlEditor = function (options = {}) {
         var _this = this;
+        this.restorable = window.ncsedtRestorableObj || new ncsedtRestorable();
 
         const defaults = {
 
@@ -265,16 +379,16 @@
     /**
      * Get the previous element that had the focus.
      */
-     ncSimpleHtmlEditor.prototype.getFocusedPrev = function (target, source) {
+    ncSimpleHtmlEditor.prototype.getFocusedPrev = function (target, source) {
         return this.focusedPrev;
     }
 
     /**
      * Get editable element.
      */
-     ncSimpleHtmlEditor.prototype.getEditable = function (target, source) {
+    ncSimpleHtmlEditor.prototype.getEditable = function (target, source) {
         return this.editable;
-     }
+    }
 
     /**
      * Get clipboard content, can be null.
@@ -299,7 +413,7 @@
      */
     ncSimpleHtmlEditor.prototype.wrapEditable = function () {
         const wrapContent = (target, wrapper = document.createElement('ncsedt-editable')) => {
-            ;[ ...target.childNodes ].forEach(child => wrapper.appendChild(child))
+            ;[...target.childNodes].forEach(child => wrapper.appendChild(child))
             target.appendChild(wrapper);
             return wrapper;
         }
@@ -431,6 +545,7 @@
         var btnsSave = document.querySelectorAll('.ncsedt-toolbar-btn-save img');
         this.saving = true;
         this.editOff();
+        this.restorable.restore();
 
         for (button of btnsSave) {
             button.src = this.options.buttons.save.icon2;
@@ -451,6 +566,7 @@
         }, this.options.saveTimeout);
 
         this.container.removeChild(download);
+        this.restorable.undoRestore();
         this.editOn();
     };
 
@@ -1359,7 +1475,7 @@
         document.querySelector("#ncsedt-dialog-image-file").addEventListener('change', function (e) {
             if (this.files[0].size > _this.options.maxImageUpload) {
                 var inMb = (_this.options.maxImageUpload / 1024 / 1024).toFixed(1);
-                alert("File is too big! "+ inMb + "Mb. max. (Use .webp format)");
+                alert("File is too big! " + inMb + "Mb. max. (Use .webp format)");
                 this.value = "";
 
                 return false;
