@@ -278,6 +278,12 @@ var editor = new ncSimpleHtmlEditor({
 });
 ```
 
+## Limitations
+
+The editor works on more than 90% of modern templates without the need to modify the template.
+
+There are issues with dynamically generated content, such as animations, preloading, etc. Some plugins modify tag attributes dynamically so that the modified attributes are saved when the template is saved.
+
 ## License
 
 MIT License
