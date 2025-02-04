@@ -1,5 +1,5 @@
-Simple HTML Editor
-==================
+Simple JS HTML Editor
+=====================
 
 Allows you to edit the content of previously created templates or designs, it does not have options to change the design.
 
@@ -13,11 +13,8 @@ For the first example I have downloaded from [here](https://templatemo.com/tm-56
 
 Once the editing is finished, I save the changes I receive in an index.html file to replace the downloaded one.
 
-- [DEMO template 1](https://thenocoder.github.io/ncSimpleHtmlEditor/demo/digimedia/)
+- [DEMO template](https://franbar1966.github.io/ncSimpleHtmlEditor/)
 
-Same procedure for this example by downloading the template from [here](https://startbootstrap.com/theme/grayscale)
-
-- [DEMO template 2](https://thenocoder.github.io/ncSimpleHtmlEditor/demo/grayscale/)
 
 ## Get started
 
