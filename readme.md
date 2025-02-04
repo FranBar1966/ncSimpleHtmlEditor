@@ -1,5 +1,5 @@
-Simple HTML Editor
-==================
+Simple JS HTML Editor
+=====================
 
 Allows you to edit the content of previously created templates or designs, it does not have options to change the design.
 
