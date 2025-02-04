@@ -1,5 +1,5 @@
-{:noCode: Simple HTML Editor :}
-===============================
+Simple HTML Editor
+==================
 
 Allows you to edit the content of previously created templates or designs, it does not have options to change the design.
 
