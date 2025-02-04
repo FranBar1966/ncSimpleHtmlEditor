@@ -13,12 +13,6 @@ For the first example I have downloaded from [here](https://templatemo.com/tm-56
 
 Once the editing is finished, I save the changes I receive in an index.html file to replace the downloaded one.
 
-- [DEMO template 1](https://thenocoder.github.io/ncSimpleHtmlEditor/demo/digimedia/)
-
-Same procedure for this example by downloading the template from [here](https://startbootstrap.com/theme/grayscale)
-
-- [DEMO template 2](https://thenocoder.github.io/ncSimpleHtmlEditor/demo/grayscale/)
-
 ## Get started
 
 Download or use the CDN, you need ncsimplehtmleditor.css and ncsimplehtmleditor.js
