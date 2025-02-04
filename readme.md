@@ -18,8 +18,8 @@ Once the editing is finished, I save the changes I receive in an index.html file
 Download or use the CDN, you need ncsimplehtmleditor.css and ncsimplehtmleditor.js
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.css">
-<script src="https://cdn.jsdelivr.net/gh/TheNocoder/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/FranBar1966/ncSimpleHtmlEditor@master/ncsimplehtmleditor.css">
+<script src="https://cdn.jsdelivr.net/gh/FranBar1966/ncSimpleHtmlEditor@master/ncsimplehtmleditor.js"></script>
 ```
 
 It is important that all the editor code is wrapped in a div with the id "ncsedt-implement" and placed at the bottom of the page, immediately before "/body", including .js and .css.
