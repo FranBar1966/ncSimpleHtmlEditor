@@ -13,7 +13,9 @@ For the first example I have downloaded from here the template, I have placed it
 
 Once the editing is finished, I save the changes I receive in an index.html file to replace the downloaded one.
 
-- [DEMO template](https://franbar1966.github.io/ncSimpleHtmlEditor/)
+- [DEMO template 1](https://franbar1966.github.io/ncSimpleHtmlEditor/2/)
+  
+- [DEMO template 2](https://franbar1966.github.io/ncSimpleHtmlEditor/)
 
 
 ## Get started
